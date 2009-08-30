@@ -1,0 +1,165 @@
+# Logfile created on Sun Aug 30 17:10:09 -0400 2009  [4;36;1mPlaylistEntry Create (0.000732)[0m   [0;1mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('first', 'f', 'unplayed')[0m
+  [4;35;1mPlaylistEntry Create (0.000179)[0m   [0mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('second', 'f', 'unplayed')[0m
+  [4;36;1mPlaylistEntry Load (0.000739)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."status" = 'unplayed') ORDER BY id[0m
+  [4;35;1mPlaylistEntry Create (0.000426)[0m   [0mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('first', 'f', 'playing')[0m
+  [4;36;1mPlaylistEntry Load (0.000504)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m
+  [4;35;1mPlaylistEntry Update (0.000189)[0m   [0mUPDATE playlist_entries SET "skip" = 't', "file_location" = 'first', "status" = 'playing' WHERE "id" = 1[0m
+  [4;36;1mPlaylistEntry Load (0.000490)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m
+  [4;36;1mSQL (0.000915)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000799)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000771)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000765)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000869)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000783)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000769)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000774)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000769)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000816)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000780)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mPlaylistEntry Create (0.000728)[0m   [0;1mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('first', 'f', 'unplayed')[0m
+  [4;35;1mPlaylistEntry Create (0.000179)[0m   [0mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('second', 'f', 'unplayed')[0m
+  [4;36;1mPlaylistEntry Load (0.000804)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."status" = 'unplayed') ORDER BY id[0m
+  [4;35;1mPlaylistEntry Create (0.000461)[0m   [0mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('first', 'f', 'playing')[0m
+  [4;36;1mPlaylistEntry Load (0.001485)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m
+  [4;35;1mPlaylistEntry Update (0.000196)[0m   [0mUPDATE playlist_entries SET "skip" = 't', "file_location" = 'first', "status" = 'playing' WHERE "id" = 1[0m
+  [4;36;1mPlaylistEntry Load (0.000552)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m
+  [4;36;1mSQL (0.000893)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000862)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000803)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000817)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000839)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000769)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mPlaylistEntry Create (0.000756)[0m   [0;1mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('first', 'f', 'unplayed')[0m
+  [4;35;1mPlaylistEntry Create (0.000180)[0m   [0mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('second', 'f', 'unplayed')[0m
+  [4;36;1mPlaylistEntry Load (0.000750)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."status" = 'unplayed') ORDER BY id[0m
+  [4;35;1mPlaylistEntry Create (0.000402)[0m   [0mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('first', 'f', 'playing')[0m
+  [4;36;1mPlaylistEntry Load (0.001005)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m
+  [4;35;1mPlaylistEntry Update (0.000199)[0m   [0mUPDATE playlist_entries SET "skip" = 't', "file_location" = 'first', "status" = 'playing' WHERE "id" = 1[0m
+  [4;36;1mPlaylistEntry Load (0.000501)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m
+  [4;36;1mSQL (0.000874)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000756)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000762)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000748)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000880)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000988)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000828)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000858)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000853)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000794)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001152)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001031)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mPlaylistEntry Create (0.000767)[0m   [0;1mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('first', 'f', 'unplayed')[0m
+  [4;35;1mPlaylistEntry Create (0.000181)[0m   [0mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('second', 'f', 'unplayed')[0m
+  [4;36;1mPlaylistEntry Load (0.000732)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."status" = 'unplayed') ORDER BY id[0m
+  [4;35;1mPlaylistEntry Create (0.000411)[0m   [0mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('first', 'f', 'playing')[0m
+  [4;36;1mPlaylistEntry Load (0.000638)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m
+  [4;35;1mPlaylistEntry Update (0.000198)[0m   [0mUPDATE playlist_entries SET "skip" = 't', "file_location" = 'first', "status" = 'playing' WHERE "id" = 1[0m
+  [4;36;1mPlaylistEntry Load (0.000537)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m
+  [4;36;1mPlaylistEntry Create (0.000736)[0m   [0;1mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('first', 'f', 'unplayed')[0m
+  [4;35;1mPlaylistEntry Create (0.000185)[0m   [0mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('second', 'f', 'unplayed')[0m
+  [4;36;1mPlaylistEntry Load (0.000739)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."status" = 'unplayed') ORDER BY id[0m
+  [4;35;1mPlaylistEntry Create (0.000385)[0m   [0mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('first', 'f', 'playing')[0m
+  [4;36;1mPlaylistEntry Load (0.000501)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m
+  [4;35;1mPlaylistEntry Update (0.000201)[0m   [0mUPDATE playlist_entries SET "skip" = 't', "file_location" = 'first', "status" = 'playing' WHERE "id" = 1[0m
+  [4;36;1mPlaylistEntry Load (0.000534)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m
+  [4;36;1mPlaylistEntry Create (0.000779)[0m   [0;1mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('first', 'f', 'unplayed')[0m
+  [4;35;1mPlaylistEntry Create (0.000181)[0m   [0mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('second', 'f', 'unplayed')[0m
+  [4;36;1mPlaylistEntry Load (0.000751)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."status" = 'unplayed') ORDER BY id[0m
+  [4;35;1mPlaylistEntry Create (0.000400)[0m   [0mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('first', 'f', 'playing')[0m
+  [4;36;1mPlaylistEntry Load (0.000589)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m
+  [4;35;1mPlaylistEntry Update (0.000239)[0m   [0mUPDATE playlist_entries SET "skip" = 't', "file_location" = 'first', "status" = 'playing' WHERE "id" = 1[0m
+  [4;36;1mPlaylistEntry Load (0.000498)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m
+  [4;36;1mPlaylistEntry Create (0.000779)[0m   [0;1mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('first', 'f', 'unplayed')[0m
+  [4;35;1mPlaylistEntry Create (0.000178)[0m   [0mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('second', 'f', 'unplayed')[0m
+  [4;36;1mPlaylistEntry Load (0.000793)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."status" = 'unplayed') ORDER BY id[0m
+  [4;35;1mPlaylistEntry Create (0.000475)[0m   [0mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('first', 'f', 'playing')[0m
+  [4;36;1mPlaylistEntry Load (0.002774)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m
+  [4;35;1mPlaylistEntry Update (0.000213)[0m   [0mUPDATE playlist_entries SET "skip" = 't', "file_location" = 'first', "status" = 'playing' WHERE "id" = 1[0m
+  [4;36;1mPlaylistEntry Load (0.000502)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m

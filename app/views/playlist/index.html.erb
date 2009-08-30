@@ -1,0 +1,47 @@
+<% content_for :head do %>
+  <meta http-equiv="refresh" content="30" />
+<% end %>
+
+<div class="container">
+  <div class="span-24">
+    <h1>
+      Jukebox.rb
+    </h1>
+    <hr>
+  </div>
+  <div class="span-24">
+    <h2>
+      Now playing:
+	  	<% if now_playing.nil? %>
+			idle
+		<% else %>
+ 			<%= now_playing %>
+		<% end %>
+    </h2>
+    <%= "<p>&lt;#{now_playing.file_location}&gt;</p>" unless now_playing.nil? %> 
+	<p>
+	<% if playing? %>
+		<a href="<%= playlist_pause_url %>">Pause</a>
+	<% else %>
+		<a href="<%= playlist_play_url %>">Play</a>
+	<% end %>
+	<% if now_playing %>
+	|
+	<a href="<%= playlist_skip_url({:id => now_playing.id}) %>">Skip Current Track</a>
+	<% end %>
+	|
+	<a href="<%= playlist_add_random_url %>">Add a random track</a>
+	|
+	<a href="<%= playlist_add_random_url+"/5" %>">Add 5 random tracks</a>
+	</p>
+	<%= check_box_tag "continuous_play", "1", continuous_play? %> Contintuous Play
+	<%= observe_field "continuous_play", :method => :get, :url => playlist_toggle_continuous_play_url %>
+	</p>
+    <hr>
+    <h3>Up next</h3>
+    <ol>
+      <%= render :partial => "entry", :collection => ready_to_play %>
+    </ol>
+    <hr>
+  </div>
+</div>
