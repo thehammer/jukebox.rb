@@ -15,7 +15,7 @@ task :pc => %w[
 desc "Run to check in"
 task :ci => :pc do
   message = Readline.readline("Commit message: ").chomp
-  command = %[svn ci --message "#{message}"]
+  command = %[git commit -m "#{message}"]
 
   puts command
   puts %x[#{command}]
