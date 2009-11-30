@@ -4,6 +4,10 @@ class PlaylistEntry < ActiveRecord::Base
   UNPLAYED = "unplayed"
   PLAYING = "playing"
 
+  def self.playing_track
+    find_by_status(PlaylistEntry::PLAYING)
+  end
+  
   def self.find_ready_to_play
     find(:first, :conditions => {:status => UNPLAYED}, :order => :id)
   end

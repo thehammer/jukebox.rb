@@ -6,12 +6,16 @@ class PlayerStatus < ActiveRecord::Base
     find(:first) or create!
   end
   
+  def self.status
+    jukebox.status
+  end
+  
   def self.playing?
-    return jukebox.status == PLAY
+    jukebox.status == PLAY
   end
   
   def self.paused?
-    return jukebox.status == PAUSE
+    jukebox.status == PAUSE
   end
   
   def self.play

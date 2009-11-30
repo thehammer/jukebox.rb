@@ -3,11 +3,11 @@ framework 'Cocoa'
 
 class NSSoundTrack
   def initialize(params)
-    return if params.nil?
-    @file_location = params[:file_location]
-    @start_time = params[:start_time]
-    @end_time = params[:end_time]
-    @after = params[:after]
+    raise if params.nil?
+    @file_location = params[0]
+    @start_time = params[1]
+    @end_time = params[2]
+    @after = params[3]
     @ns_sound = NSSound.alloc.initWithContentsOfFile @file_location, byReference: true
     @ns_sound.currentTime = @start_time if @start_time
   end

@@ -39,6 +39,41 @@ class PlaylistController < ApplicationController
     redirect_to playlist_url
   end
   
+  def status
+    render :text => PlayerStatus.status
+  end
+  
+  def skip_requested
+    current_track = PlaylistEntry.playing_track
+    skip = current_track.nil? ? false : current_track.skip
+
+    render :text => skip.to_s
+  end
+
+  def next_entry
+    PlaylistEntry.find_all_by_status(PlaylistEntry::PLAYING).each { |p| PlaylistEntry.delete(p) }
+    filename = ""
+    if entry = PlaylistEntry.find_next_track_to_play
+      entry.update_attributes!(:status => PlaylistEntry::PLAYING)
+      filename = entry.file_location
+    end    
+    
+    render :text => filename
+  end
+  
+  def next_hammertime
+    text = ""
+    if hammertime = Hammertime.find(:first)
+      text = [hammertime.snippet.file_location,
+              hammertime.snippet.start_time,
+              hammertime.snippet.end_time,
+              hammertime.after].join('|')
+      Hammertime.delete(hammertime)
+    end
+    
+    render :text => text
+  end
+  
   def toggle_continuous_play
     PlayerStatus.toggle_continuous_play
     

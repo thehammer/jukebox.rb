@@ -163,3 +163,10 @@
   [4;36;1mPlaylistEntry Load (0.002774)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m
   [4;35;1mPlaylistEntry Update (0.000213)[0m   [0mUPDATE playlist_entries SET "skip" = 't', "file_location" = 'first', "status" = 'playing' WHERE "id" = 1[0m
   [4;36;1mPlaylistEntry Load (0.000502)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m
+  [4;36;1mPlaylistEntry Create (0.000447)[0m   [0;1mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('first', 'f', 'unplayed')[0m
+  [4;35;1mPlaylistEntry Create (0.000220)[0m   [0mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('second', 'f', 'unplayed')[0m
+  [4;36;1mPlaylistEntry Load (0.000642)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."status" = 'unplayed') ORDER BY id[0m
+  [4;35;1mPlaylistEntry Create (0.000417)[0m   [0mINSERT INTO playlist_entries ("file_location", "skip", "status") VALUES('first', 'f', 'playing')[0m
+  [4;36;1mPlaylistEntry Load (0.000421)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m
+  [4;35;1mPlaylistEntry Update (0.000180)[0m   [0mUPDATE playlist_entries SET "skip" = 't', "file_location" = 'first', "status" = 'playing' WHERE "id" = 1[0m
+  [4;36;1mPlaylistEntry Load (0.000377)[0m   [0;1mSELECT * FROM playlist_entries WHERE (playlist_entries."id" = 1) [0m

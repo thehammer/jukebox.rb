@@ -1,24 +1,8 @@
 #!/usr/bin/env macruby
 base_dir = File.dirname(__FILE__) + '/..'
 
-# Launch the PlaylistManager
-system("#{File.dirname(__FILE__)}/drb_playlist_manager 2>&1 &")
-
-require 'drb'
-
-# Monkey-patch macruby's implementation of drb due to issues with macruby IO
-class DRb::DRbTCPSocket
-  def alive?
-    !@socket.nil?
-  end
-end
-
+load "#{base_dir}/app/domain/playlist_manager.rb"
 load "#{base_dir}/app/domain/player.rb"
 load "#{base_dir}/app/domain/ns_sound_track.rb"
 
-sleep 5
-
-DRb.start_service
-playlist_manager = DRbObject.new_with_uri "drbunix:///tmp/jukebox"
-
-Player.new(playlist_manager, NSSoundTrack).run
+Player.new(PlaylistManager, NSSoundTrack).run

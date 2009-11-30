@@ -1,34 +1,27 @@
+require 'net/http'
+
 class PlaylistManager
-  PAUSED = 'paused'
-  PLAYING = 'playing'
+  PAUSED = 'pause'
+  PLAYING = 'play'
   
-  def state
-    PlayerStatus.playing? ? PLAYING : PAUSED
+  def self.state
+    Net::HTTP.get URI.parse('http://localhost:3000/playlist/status')
   end
   
-  def playing_track
-    PlaylistEntry.find_by_status(PlaylistEntry::PLAYING)
-  end
-    
-  def skip?
-    playing_track and playing_track.skip?
+  def self.skip?
+    Net::HTTP.get(URI.parse('http://localhost:3000/playlist/status')) == true.to_s
   end
 
-  def pause
-    PlayerStatus.pause
+  def self.pause
+    Net::HTTP.post_form(URI.parse('http://localhost:3000/playlist/pause'), {})
   end
 
-  def next_playlist_entry
-    PlaylistEntry.find_all_by_status(PlaylistEntry::PLAYING).each { |p| PlaylistEntry.delete(p) }
-    return unless entry = PlaylistEntry.find_next_track_to_play
-    entry.update_attributes!(:status => PlaylistEntry::PLAYING)
-    entry.attributes
+  def self.next_playlist_entry
+    Net::HTTP.get URI.parse('http://localhost:3000/playlist/next_entry')
   end
 
-  def next_hammertime
-    return unless hammertime = Hammertime.find(:first)
-    attributes = hammertime.snippet.attributes.merge(:after => hammertime.after)
-    Hammertime.delete(hammertime)
-    attributes
+  def self.next_hammertime
+    response = Net::HTTP.get URI.parse('http://localhost:3000/playlist/next_entry')
+    response.split('|')
   end
 end

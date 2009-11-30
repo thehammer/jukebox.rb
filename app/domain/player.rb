@@ -1,7 +1,7 @@
 class Player
   SLEEP_DURATION = 1
-  PAUSED = 'paused'
-  PLAYING = 'playing'
+  PAUSED = 'pause'
+  PLAYING = 'play'
   
   OPERATIONS = %w{
     handle_state_change
@@ -96,12 +96,16 @@ class Player
   end
   
   def next_playlist_entry
-    return unless track_attributes = @playlist_manager.next_playlist_entry
-    @playlist_entry = @track_class.new track_attributes
+    file_location = @playlist_manager.next_playlist_entry
+    return if file_location.nil? || file_location == ""
+    
+    @playlist_entry = @track_class.new [file_location]
   end
 
   def next_hammertime
-    return unless track_attributes = @playlist_manager.next_hammertime
+    track_attributes = @playlist_manager.next_hammertime
+    return if track_attributes.nil? || track_attributes.empty?
+    
     @hammertime = @track_class.new track_attributes
   end
 end

@@ -9,6 +9,10 @@ ActionController::Routing::Routes.draw do |map|
   map.playlist_play '/playlist/play', :controller => 'playlist', :action => 'play'
   map.playlist_pause '/playlist/pause', :controller => 'playlist', :action => 'pause'
   map.playlist_toggle_continuous_play '/playlist/toggle_continuous_play', :controller => 'playlist', :action => 'toggle_continuous_play'
+  map.playlist_status '/playlist/status', :controller => 'playlist', :action => 'status'
+  map.playlist_skip_requested '/playlist/skip_requested', :controller => 'playlist', :action => 'skip_requested'
+  map.playlist_next_entry '/playlist/next_entry', :controller => 'playlist', :action => 'next_entry'
+  map.playlist_next_hammertime '/playlist/next_hammertime', :controller => 'playlist', :action => 'next_hammertime'
   
   map.hammertime_add_for '/hammertime/add_for/:name', :controller => 'hammertime', :action => 'add_for'
 end
