@@ -99,13 +99,13 @@ class Player
     file_location = @playlist_manager.next_playlist_entry
     return if file_location.nil? || file_location == ""
     
-    @playlist_entry = @track_class.new [file_location]
+    @playlist_entry = @track_class.new [file_location] rescue nil
   end
 
   def next_hammertime
     track_attributes = @playlist_manager.next_hammertime
     return if track_attributes.nil? || track_attributes.empty?
     
-    @hammertime = @track_class.new track_attributes
+    @hammertime = @track_class.new track_attributes rescue nil
   end
 end

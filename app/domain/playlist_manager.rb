@@ -9,7 +9,7 @@ class PlaylistManager
   end
   
   def self.skip?
-    Net::HTTP.get(URI.parse('http://localhost:3000/playlist/status')) == true.to_s
+    Net::HTTP.get(URI.parse('http://localhost:3000/playlist/skip_requested')) == true.to_s
   end
 
   def self.pause
@@ -21,7 +21,7 @@ class PlaylistManager
   end
 
   def self.next_hammertime
-    response = Net::HTTP.get URI.parse('http://localhost:3000/playlist/next_entry')
+    response = Net::HTTP.get URI.parse('http://localhost:3000/playlist/next_hammertime')
     response.split('|')
   end
 end

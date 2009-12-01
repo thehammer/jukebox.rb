@@ -5,10 +5,11 @@ class NSSoundTrack
   def initialize(params)
     raise if params.nil?
     @file_location = params[0]
-    @start_time = params[1]
-    @end_time = params[2]
+    @start_time = params[1].to_f if params[1]
+    @end_time = params[2].to_f if params[2]
     @after = params[3]
     @ns_sound = NSSound.alloc.initWithContentsOfFile @file_location, byReference: true
+    raise "unable to create NSSound object for #{@file_location}" unless @ns_sound
     @ns_sound.currentTime = @start_time if @start_time
   end
   
