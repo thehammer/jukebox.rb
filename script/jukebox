@@ -1,8 +1,0 @@
-#!/usr/bin/env macruby
-base_dir = File.dirname(__FILE__) + '/..'
-
-load "#{base_dir}/app/domain/playlist_manager.rb"
-load "#{base_dir}/app/domain/player.rb"
-load "#{base_dir}/app/domain/ns_sound_track.rb"
-
-Player.new(PlaylistManager, NSSoundTrack).run

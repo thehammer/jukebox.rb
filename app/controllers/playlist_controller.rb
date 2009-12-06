@@ -34,7 +34,6 @@ class PlaylistController < ApplicationController
   
   def skip
     PlaylistEntry.skip(params[:id])
-    sleep 1
     
     redirect_to playlist_url
   end
