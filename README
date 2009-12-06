@@ -11,7 +11,7 @@ With jukebox.rb, you can...
 	- discourage infrequent commits by letting the music die when there haven't been commits for a long while
 
 Getting started:
-	- Included with jukebox.rb is a Mac music player, based on Core Audio, which uses MacRuby, so you'll need to have that installed to use it
+	- jukebox.rb provides a web front end for a player engine.  You'll need to use the CocoaJukeboxPlayer, MacRubyJukeboxPlayer, or a custom player to actually play your music.  Check out those projects for more information.  The CocoaJukeboxPlayer is recommended for the time being.
 	- Run the migrations to create the database
 	- The app looks in a directory set in the environment variable JUKEBOX_MUSIC_ROOT, so set that variable, pointed to your music. Alternatively, it defaults to a "music" folder at the root of the app.  Create it and load your music there if you prefer.
 	- The current code only looks for mp3 files.  You can change the code and it should work with anything that Core Audio can play.  It'll be fixed in the future.
