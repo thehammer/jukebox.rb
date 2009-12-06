@@ -17,7 +17,7 @@ task :commit => :pc do
 end
 
 task :push => :commit do
-  command = %[git pull"]
+  command = %[git pull]
   puts command
   puts %x[#{command}]
 
