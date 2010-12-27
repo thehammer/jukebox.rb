@@ -26,8 +26,6 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
   config.load_paths += %W( #{RAILS_ROOT}/app/domain
                            #{RAILS_ROOT}/app/plugins
-                           #{RAILS_ROOT}/vendor/ID3-v0.4/source
-                           #{RAILS_ROOT}/vendor/ruby-mp3info-0.6.2/lib
                          )
 
   # Force all environments to use the same logger level

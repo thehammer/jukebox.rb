@@ -1,1 +1,7 @@
 music
+.DS_Store
+/tmp
+/db/schema.rb
+/snippets
+/temp_out
+nohup.out

@@ -1,4 +1,4 @@
-require 'id3'
+require 'tagfile/tagfile'
 
 class PlaylistEntry < ActiveRecord::Base
   UNPLAYED = "unplayed"
@@ -7,7 +7,7 @@ class PlaylistEntry < ActiveRecord::Base
   def self.playing_track
     find_by_status(PlaylistEntry::PLAYING)
   end
-  
+
   def self.find_ready_to_play
     find(:first, :conditions => {:status => UNPLAYED}, :order => :id)
   end
@@ -25,7 +25,10 @@ class PlaylistEntry < ActiveRecord::Base
   end
 
   def self.create_random!(params = {})
-    mp3_files = Dir.glob(File.join([JUKEBOX_MUSIC_ROOT, params[:user], "**", "*.mp3"].compact))
+    mp3_files = Dir[
+      File.join([JUKEBOX_MUSIC_ROOT, params[:user], "**", "*.mp3"].compact),
+      File.join([JUKEBOX_MUSIC_ROOT, params[:user], "**", "*.m4a"].compact)
+    ]
     return if mp3_files.empty?
 
     srand(Time.now.to_i)
@@ -37,35 +40,43 @@ class PlaylistEntry < ActiveRecord::Base
   def self.skip(track_id)
     find(track_id).update_attributes! :skip => true
   end
-    
+
   def filename
     self.file_location.split('/').last
   end
-  
+
+  def contributor
+    file_location.sub(JUKEBOX_MUSIC_ROOT, "").split('/')[1].titlecase
+  end
+
+  def gravatar(size = nil)
+    User.gravatar_for(contributor, size = nil)
+  end
+
   begin # ID3 Tag Methods
     def id3
-      @id3 ||= ID3::AudioFile.new(file_location)
+      @id3 ||= TagFile::File.new(file_location)
     end
-  
+
     def title
-      id3.tagID3v2['TITLE']['text'] if id3.tagID3v2 && id3.tagID3v2['TITLE']
+      id3.title
     end
 
     def artist
-      id3.tagID3v2['ARTIST']['text'] if id3.tagID3v2 && id3.tagID3v2['ARTIST']
+      id3.artist
     end
 
     def album
-      id3.tagID3v2['ALBUM']['text'] if id3.tagID3v2 && id3.tagID3v2['ALBUM']
+      id3.album
     end
 
     def track_number
-      id3.tagID3v2['TRACKNUM']['text'] if id3.tagID3v2 && id3.tagID3v2['TRACKNUM']
+      id3.track
     end
-  
+
     def to_s
-      "#{artist} - #{title} (#{album})"
+      "#{artist} - <em>#{title}</em>"
     end
   end
-  
+
 end

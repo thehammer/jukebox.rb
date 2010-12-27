@@ -4,9 +4,9 @@ With jukebox.rb, you can...
 	- pool your team's music, so everyone's music gets play time
 	- view and modify the playlist via a simple web front end
 	- interrupt music for alerts, for example...
-		- schedule a clip from a song to play at the same time every morning to let your team know it's time for stand up
-		- play an unpleasant song when the build breaks (a cruise.rb plugin is included)
-		- when a story card closes, play celebration tunes to recognize the team members who completed it
+	- schedule a clip from a song to play at the same time every morning to let your team know it's time for stand up
+	- play an unpleasant song when the build breaks (a cruise.rb plugin is included)
+	- when a story card closes, play celebration tunes to recognize the team members who completed it
 	- encourage frequent commits by adding more tracks from individual developer's music collections
 	- discourage infrequent commits by letting the music die when there haven't been commits for a long while
 

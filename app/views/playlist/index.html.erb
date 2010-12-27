@@ -1,4 +1,5 @@
 <% content_for :head do %>
+  <title>jukebox.rb &mdash; <%= now_playing.title %></title>
   <meta http-equiv="refresh" content="10" />
 <% end %>
 
@@ -11,14 +12,13 @@
   </div>
   <div class="span-24">
     <h2>
-      Now playing:
-	  	<% if now_playing.nil? %>
-			idle
-		<% else %>
- 			<%= now_playing %>
-		<% end %>
+      <% if now_playing.nil? %>
+        idle
+      <% else %>
+        <span style="float:left"><%= image_tag(now_playing.gravatar, :style => "padding-right: 1em") %></span>
+        <%= now_playing %>
+      <% end %>
     </h2>
-    <%= "<p>&lt;#{now_playing.file_location}&gt;</p>" unless now_playing.nil? %> 
 	<p>
 	<% if playing? %>
 		<a href="<%= playlist_pause_url %>">Pause</a>
@@ -39,9 +39,7 @@
 	</p>
     <hr>
     <h3>Up next</h3>
-    <ol>
-      <%= render :partial => "entry", :collection => ready_to_play %>
-    </ol>
+    <%= render :partial => "entry", :collection => ready_to_play %>
     <hr>
   </div>
 </div>

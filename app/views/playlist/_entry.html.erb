@@ -1,2 +1,6 @@
-<li><%= entry %> <a href="<%= playlist_delete_url({:id => entry.id}) %>"
-title='<%= entry.file_location %>'>delete from playlist</a></li>
+<div style="height: 30px">
+  <%= image_tag(entry.gravatar(25), :style => "border: 1; vertical-align: center; width: 25px;") %>
+  <span style="font-size: 18px; vertical-align: top; height: 100%">
+    <%= entry %> <a style="color: gray; text-decoration: none" href="<%= playlist_delete_url({:id => entry.id}) %>">delete</a>
+  </span>
+</div>
