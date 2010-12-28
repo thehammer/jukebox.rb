@@ -1,0 +1,16 @@
+<% content_for :head do %>
+  <title>jukebox.rb &mdash; <%= now_playing.title %></title>
+<% end %>
+
+<div class="container">
+  <div class="span-24">
+    <h1>
+      Jukebox.rb - Users
+    </h1>
+    <hr>
+  </div>
+  <div class="span-24">
+    <%= render :partial => "user", :collection => users %>
+  </div>
+</div>
+

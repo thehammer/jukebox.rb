@@ -13,6 +13,11 @@ ActionController::Routing::Routes.draw do |map|
   map.playlist_skip_requested '/playlist/skip_requested', :controller => 'playlist', :action => 'skip_requested'
   map.playlist_next_entry '/playlist/next_entry', :controller => 'playlist', :action => 'next_entry'
   map.playlist_next_hammertime '/playlist/next_hammertime', :controller => 'playlist', :action => 'next_hammertime'
-  
+
   map.hammertime_add_for '/hammertime/add_for/:name', :controller => 'hammertime', :action => 'add_for'
+
+  map.user_activate '/user/activate/:username', :controller => 'user', :action => 'activate'
+  map.user_inactivate '/user/inactivate/:username', :controller => 'user', :action => 'inactivate'
+  map.user_show '/user', :controller => 'user', :action => 'index'
+
 end

@@ -1,0 +1,13 @@
+<div style="height: 31px">
+  <%= image_tag(user.gravatar(25), :style => "border: 1; vertical-align: center; width: 25px;") %>
+  <span style="font-size: 18px; vertical-align: top; height: 100%">
+    <% unless user.active? %>
+      <del>
+    <% end %>
+    <%= user.username %>
+    <% unless user.active? %>
+      </del>
+    <% end %>
+    <%= active_toggle_link(user) %>
+  </span>
+</div>

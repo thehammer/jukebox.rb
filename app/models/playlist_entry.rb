@@ -4,6 +4,11 @@ class PlaylistEntry < ActiveRecord::Base
   UNPLAYED = "unplayed"
   PLAYING = "playing"
 
+  SUPPORTED_FORMATS = %w[
+    mp3
+    m4a
+  ]
+
   def self.playing_track
     find_by_status(PlaylistEntry::PLAYING)
   end
@@ -25,10 +30,9 @@ class PlaylistEntry < ActiveRecord::Base
   end
 
   def self.create_random!(params = {})
-    mp3_files = Dir[
-      File.join([JUKEBOX_MUSIC_ROOT, params[:user], "**", "*.mp3"].compact),
-      File.join([JUKEBOX_MUSIC_ROOT, params[:user], "**", "*.m4a"].compact)
-    ]
+    users = params[:user] ? [params[:user]] : User.find_all_by_active(true).map(&:username)
+    filemask = File.join([JUKEBOX_MUSIC_ROOT, "{#{users.join(",")}}", "**", "*.{#{SUPPORTED_FORMATS.join(",")}}"].compact)
+    mp3_files = Dir[filemask]
     return if mp3_files.empty?
 
     srand(Time.now.to_i)
