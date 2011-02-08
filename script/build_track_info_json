@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+require File.dirname(__FILE__) + '/../config/environment'
+require 'taglib'
+require "erb"
+include ERB::Util
+
+filemask = File.join([JUKEBOX_MUSIC_ROOT, "**", "*.{#{PlaylistEntry::SUPPORTED_FORMATS.join(",")}}"].compact)
+tracks = Dir[filemask]
+
+track_info = {}
+had_nil = false
+had_bad = false
+retry_track = nil
+previous = ""
+tracks.each do |track|
+  begin
+    tag_data = TagLib::File.new(track)
+    if tag_data.title.nil? || (tag_data.title == "")
+      print "N"; STDOUT.flush
+      next
+    end
+
+    label = "#{tag_data.artist} - #{tag_data.title} (#{tag_data.album})"
+    track_info[label] = track.gsub(JUKEBOX_MUSIC_ROOT, "")
+    print "."; STDOUT.flush
+    tag_data.close
+  rescue TagLib::BadTag => e
+    print "B"; STDOUT.flush
+  end
+end
+puts
+puts "Done gathering id3 info"
+File.open("public/javascripts/tracks.js", 'w') do |f|
+  f.write("tracks = {\n")
+  f.write(track_info.map { |track_label, track_path| "'#{track_label.gsub(/[']/, '\\\\\'')}': '#{url_encode(track_path)}'" }.join(",\n"))
+  f.write("\n}")
+end

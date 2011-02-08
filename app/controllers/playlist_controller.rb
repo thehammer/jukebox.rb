@@ -8,10 +8,19 @@ class PlaylistController < ApplicationController
     redirect_to playlist_url
   end
 
+  def add_track
+    PlaylistEntry.create! :file_location => File.join(JUKEBOX_MUSIC_ROOT, params[:filepath])
+
+    redirect_to playlist_url
+  end
+
   def add_for
     PlaylistEntry.create_random!(:user => params[:name])
 
     redirect_to playlist_url
+  end
+
+  def browse
   end
 
   def delete
@@ -30,6 +39,9 @@ class PlaylistController < ApplicationController
     PlayerStatus.play
 
     redirect_to playlist_url
+  end
+
+  def search
   end
 
   def skip

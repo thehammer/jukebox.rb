@@ -1,6 +1,6 @@
 <% content_for :head do %>
   <title>jukebox.rb &mdash; <%= now_playing.title %></title>
-  <meta http-equiv="refresh" content="10" />
+  <meta http-equiv="refresh" content="30" />
 <% end %>
 
 <div class="container">
@@ -19,24 +19,34 @@
         <%= now_playing %>
       <% end %>
     </h2>
-	<p>
-	<% if playing? %>
-		<a href="<%= playlist_pause_url %>">Pause</a>
-	<% else %>
-		<a href="<%= playlist_play_url %>">Play</a>
-	<% end %>
-	<% if now_playing %>
-	|
-	<a href="<%= playlist_skip_url({:id => now_playing.id}) %>">Skip Current Track</a>
-	<% end %>
-	|
-	<a href="<%= playlist_add_random_url %>">Add a random track</a>
-	|
-	<a href="<%= playlist_add_random_url+"/5" %>">Add 5 random tracks</a>
-	</p>
-	<%= check_box_tag "continuous_play", "1", continuous_play? %> Contintuous Play
-	<%= observe_field "continuous_play", :method => :get, :url => playlist_toggle_continuous_play_url %>
-	</p>
+    <p>
+      <% if playing? %>
+        <a href="<%= playlist_pause_url %>">Pause</a>
+      <% else %>
+        <a href="<%= playlist_play_url %>">Play</a>
+      <% end %>
+      <% if now_playing %>
+      |
+      <a href="<%= playlist_skip_url({:id => now_playing.id}) %>">Skip Current Track</a>
+      <% end %>
+      |
+      <a href="<%= playlist_add_random_url %>">Add a random track</a>
+      |
+      <a href="<%= playlist_add_random_url+"/5" %>">Add 5 random tracks</a>
+      |
+      <a href="<%= browse_url %>">Browse</a>
+      |
+      <a href="<%= user_show_url %>">Users</a>
+    </p>
+  </div>
+  <div class="span-24" style="visibility: hidden">
+    <%= check_box_tag "continuous_play", "1", continuous_play? %> Contintuous Play
+    <%= observe_field "continuous_play", :method => :get, :url => playlist_toggle_continuous_play_url %>
+  </div>
+  <div class="span-24">
+    <%= render :partial => "search" %>
+  </div>
+  <div class="span-24">
     <hr>
     <h3>Up next</h3>
     <%= render :partial => "entry", :collection => ready_to_play %>

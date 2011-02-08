@@ -1,0 +1,54 @@
+<%
+  require 'tagfile/tagfile'
+
+  subpath = params[:subpath] || ""
+  path = File.join(JUKEBOX_MUSIC_ROOT, subpath)
+%>
+<h3>
+  <%
+    chain = []
+    nodes = subpath.split("/").compact.reject {|node| node == ""}
+    if nodes.any?
+  %>
+  <%= link_to("TOP", browse_path) + ">" %>
+  <%
+    end
+
+    nodes.each_with_index do |node, index|
+      chain << node
+      if index < (nodes.size - 1)
+   %>
+   <%= link_to(node, browse_path(:subpath => File.join(*chain))) + ">" %>
+   <%
+      else
+   %>
+   <%= node %>
+   <%
+      end
+     end
+   %>
+</h3>
+<%
+  Dir[File.join(path, "*")].select { |f| FileTest.directory?(f) }.sort.each do |file|
+    filename = Pathname.new(file).basename
+    new_subpath = File.join(subpath, filename)
+%>
+<%= link_to filename, browse_path(:subpath => new_subpath) %><%= "/" %><br />
+<%
+  end
+
+  Dir[File.join(path, "*")].select { |f| FileTest.file?(f) }.sort.each do |file|
+    filename = Pathname.new(file).basename.to_s
+    filepath = File.join(subpath, filename)
+    next unless ["mp3", "m4a"].include?(filename.split(".").last)
+    begin
+      id3 = TagFile::File.new(File.join(JUKEBOX_MUSIC_ROOT, filepath))
+    rescue TagFile::BadTag
+      next
+    end
+    next if id3.title.nil? || id3.title == ""
+%>
+<%= link_to "#{id3.title}", playlist_add_track_path(:filepath => filepath), :alt => filepath %><br />
+<%
+  end
+%>
