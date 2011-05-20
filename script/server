@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
+$0 = 'Jukebox'
 require File.dirname(__FILE__) + '/../config/boot'
 require 'commands/server'

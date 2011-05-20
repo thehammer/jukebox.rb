@@ -24,9 +24,14 @@ class PlaylistController < ApplicationController
   end
 
   def delete
-    PlaylistEntry.delete(params[:id])
+    PlaylistEntry.create_random!(:user => PlaylistEntry.find(params[:id]).contributor.downcase)
+    PlaylistEntry.delete_all(["id = ? and status = ?", params[:id], PlaylistEntry::UNPLAYED])
 
     redirect_to playlist_url
+  end
+
+  def index
+    @volume = %x[/usr/bin/osascript -e 'set currentVolume to output volume of (get volume settings)'].chomp
   end
 
   def pause
@@ -45,6 +50,7 @@ class PlaylistController < ApplicationController
   end
 
   def skip
+    PlaylistEntry.create_random!(:user => PlaylistEntry.find(params[:id]).contributor.downcase)
     PlaylistEntry.skip(params[:id])
 
     redirect_to playlist_url
@@ -59,6 +65,16 @@ class PlaylistController < ApplicationController
     skip = current_track.nil? ? false : current_track.skip
 
     render :text => skip.to_s
+  end
+
+  def volume_down
+    %x[/usr/bin/osascript -e 'set volume output volume (output volume of (get volume settings) - 5)']
+    redirect_to playlist_url
+  end
+
+  def volume_up
+    %x[/usr/bin/osascript -e 'set volume output volume (output volume of (get volume settings) + 5)']
+    redirect_to playlist_url
   end
 
   def next_entry

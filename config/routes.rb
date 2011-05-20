@@ -14,6 +14,8 @@ ActionController::Routing::Routes.draw do |map|
   map.playlist_skip_requested '/playlist/skip_requested', :controller => 'playlist', :action => 'skip_requested'
   map.playlist_next_entry '/playlist/next_entry', :controller => 'playlist', :action => 'next_entry'
   map.playlist_next_hammertime '/playlist/next_hammertime', :controller => 'playlist', :action => 'next_hammertime'
+  map.volume_up '/playlist/volume_up', :controller => 'playlist', :action => 'volume_up'
+  map.volume_down '/playlist/volume_down', :controller => 'playlist', :action => 'volume_down'
 
   map.browse '/browse', :controller => 'playlist', :action => 'browse'
   map.search '/playlist/search', :controller => 'playlist', :action => 'search'

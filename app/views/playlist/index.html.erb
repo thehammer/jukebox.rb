@@ -10,7 +10,7 @@
     </h1>
     <hr>
   </div>
-  <div class="span-24">
+  <div class="span-22">
     <h2>
       <% if now_playing.nil? %>
         idle
@@ -38,13 +38,14 @@
       |
       <a href="<%= user_show_url %>">Users</a>
     </p>
+    <p>
+      <%= render :partial => "search" %>
+    </p>
   </div>
-  <div class="span-24" style="visibility: hidden">
-    <%= check_box_tag "continuous_play", "1", continuous_play? %> Contintuous Play
-    <%= observe_field "continuous_play", :method => :get, :url => playlist_toggle_continuous_play_url %>
-  </div>
-  <div class="span-24">
-    <%= render :partial => "search" %>
+  <div class="span-2 last" style="font-size: 20px; font-style: bold" align="center">
+    <a href="<%= volume_up_url %>">+</a><br />
+    <%= @volume %><br />
+    <a href="<%= volume_down_url %>">-</a>
   </div>
   <div class="span-24">
     <hr>
